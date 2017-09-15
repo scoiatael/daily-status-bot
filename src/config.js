@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const ENV = process.env.NODE_ENV || 'development'
+const ENV = process.env.NODE_ENV || 'development';
 
 const config = {
   ENV: process.env.NODE_ENV,
@@ -12,10 +12,10 @@ const config = {
   USERNAME: 'Audience Insights Status Bot',
   ICON_EMOJI: ':stars:',
   SLACK_MENTION: process.env.SLACK_MENTION,
-}
+};
 
 module.exports = (key) => {
-  if (!key) return config
+  if (!key) return config;
 
-  return config[key]
+  return config[key];
 }
