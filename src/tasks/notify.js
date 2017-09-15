@@ -2,6 +2,7 @@
 
 const _ = require('lodash')
 const config = require('../config')
+const schedule = require('../schedule')
 const Botkit = require('botkit')
 
 var controller = Botkit.slackbot({})
@@ -17,13 +18,14 @@ const msgDefaults = {
 }
 
 var attachments = [
-]
+];
 
-let msg = _.defaults({ attachments: attachments }, msgDefaults)
-console.log(msg)
+var msg = _.defaults({ attachments: attachments }, msgDefaults);
 
-bot.sendWebhook(msg, (err, res) => {
-  if (err) throw err
+if(schedule.check(new Date())) {
+  bot.sendWebhook(msg, (err, res) => {
+    if (err) throw err;
 
-  console.log(`\n Starbot report delivered\n${res}`)
-})
+    console.log(`\n Starbot report delivered\n${res}`);
+  });
+}
