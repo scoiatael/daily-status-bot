@@ -9,6 +9,8 @@ Simply:
 * create Slack incoming webhook URL
 * Set WEBHOOK_URL and SLACK_MENTION via heroku config. Slack mention should be name of group you want to remind. Like <!subteam^S$ID|@$NAME>.
 
+More info can be found in https://blog.heroku.com/how-to-deploy-your-slack-bots-to-heroku.
+
 ## License
 
 **[This project is licensed under the terms of the MIT license.](http://license-me.herokuapp.com)**
