@@ -10,7 +10,9 @@ const config = {
   WEBHOOK_URL: process.env.WEBHOOK_URL,
   STARBOT_COMMAND_TOKEN: process.env.STARBOT_COMMAND_TOKEN,
   SLACK_TOKEN: process.env.SLACK_TOKEN,
-  ICON_EMOJI: ':stars:'
+  USERNAME: 'Audience Insights Status Bot',
+  ICON_EMOJI: ':stars:',
+  SLACK_MENTION: process.env.SLACK_MENTION,
 }
 
 module.exports = (key) => {
@@ -18,5 +20,3 @@ module.exports = (key) => {
 
   return config[key]
 }
-
-©
