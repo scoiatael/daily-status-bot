@@ -1,20 +1,20 @@
 {
-  "name": "🌟 Starbot",
-  "description": "Starbot is GitHub's trending open-source page, reincarnated as a Slack bot",
-  "repository": "https://github.com/mattcreager/starbot",
+  "name": "Daily status bot",
+  "description": "Remind your team about standups.",
+  "repository": "https://github.com/scoiatael/daily-status-bot",
   "logo": "https://heroku-www-files.s3.amazonaws.com/starbot/starbot-icon.png",
   "success_url": "/",
   "env": {
     "HEROKU_APP_NAME": {
       "required": true
     },
-    "STARBOT_COMMAND_TOKEN": {
-      "description": "Slash command token, for the starbot command endpoint",
+    "WEBHOOK_URL": {
+      "description": "URL via which to connect with Slack",
       "required": true
     },
-    "SLACK_TOKEN": {
-      "description": "Slack bot RTM API token",
-      "required": false
+    "SLACK_MENTION": {
+      "description": "Who shall be mentioned in the message",
+      "required": true
     },
     "NODE_ENV": "staging"
   },

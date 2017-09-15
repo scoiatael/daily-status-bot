@@ -5,7 +5,7 @@ Your team ever forgot to write status? Feel too cheap to pay for complex integra
 
 ## Deployment
 Simply:
-* push to heroku (TODO: deploy to heroku button).
+* push to heroku: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy).
 * create Slack incoming webhook URL
 * Set WEBHOOK_URL and SLACK_MENTION via heroku config. Slack mention should be name of group you want to remind. Like <!subteam^S$ID|@$NAME>.
 
