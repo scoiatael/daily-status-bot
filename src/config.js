@@ -18,3 +18,5 @@ module.exports = (key) => {
 
   return config[key]
 }
+
+©
