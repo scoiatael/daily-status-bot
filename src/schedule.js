@@ -1,31 +1,32 @@
 'use strict';
 
 const _ = require('lodash');
+const config = require('../config');
 
 const Schedule = {
   // Sunday
-  '0': false,
+  '0': null,
   // Monday
-  '1': true,
+  '1': 'status',
   // Tuesday
-  '2': false,
+  '2': 'call',
   // Wednesday
-  '3': true,
+  '3': 'status',
   // Thursday
-  '4': false,
+  '4': 'call',
   // Friday
-  '5': true,
+  '5': 'status',
   // Saturday
-  '6': false,
+  '6': null,
 };
 
 const byDay = (date) => {
   let day = date.getDay();
-  if(Schedule[day]) {
+  if(Schedule[day] == 'status' || Schedule[day] == null) {
     return false;
   }
   return {
-    text: `Standup is not scheduled for weekday ${day}.`
+    text: `All engineers must head immediately to the main chamber for an important meeting. [${config('SLACK_MENTION')}]`
   };
 };
 

@@ -16,7 +16,7 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI'),
 };
 
-var text = `${config('SLACK_MENTION')} Remember about daily-standup!`;
+var text = `All engineers must report immediately their progress status. Thank you for your cooperation. [${config('SLACK_MENTION')}]`;
 let cause = schedule.check(new Date());
 if(cause) {
   text = cause.text;
