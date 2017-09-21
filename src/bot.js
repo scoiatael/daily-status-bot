@@ -26,7 +26,7 @@ bot.message((msg) => {
     let txt = _.truncate(data.message.text);
 
     console.log(`🤖  beep boop: I responded with "${txt}"`);
-  }):
+  })
 });
 
 module.exports = bot;
