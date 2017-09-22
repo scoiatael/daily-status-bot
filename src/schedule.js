@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const config = require('../config');
+const config = require('./config');
 
 const Schedule = {
   // Sunday
@@ -17,7 +17,7 @@ const Schedule = {
   // Friday
   '5': 'status',
   // Saturday
-  '6': null,
+  '6': null
 };
 
 const byDay = (date) => {
@@ -26,7 +26,7 @@ const byDay = (date) => {
     return false;
   }
   return {
-    text: `All engineers must head immediately to the main chamber for an important meeting. [${config('SLACK_MENTION')}]`
+    text: `_All engineers must head *immediately* to the main chamber for an important meeting_. [*${config('SLACK_MENTION')}*]`
   };
 };
 

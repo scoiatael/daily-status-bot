@@ -13,10 +13,10 @@ bot.configureIncomingWebhook({ url: config('WEBHOOK_URL') });
 const msgDefaults = {
   response_type: 'in_channel',
   username: config('USERNAME'),
-  icon_emoji: config('ICON_EMOJI'),
+  icon_emoji: config('ICON_EMOJI')
 };
 
-var text = `All engineers must report immediately their progress status. Thank you for your cooperation. [${config('SLACK_MENTION')}]`;
+var text = `_All engineers must report *immediately* their progress status. Thank you for your cooperation._ [*${config('SLACK_MENTION')}*]`;
 let cause = schedule.check(new Date());
 if(cause) {
   text = cause.text;
