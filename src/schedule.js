@@ -19,35 +19,19 @@ const Schedule = {
   // Saturday
   '6': null
 };
-
-const byDay = (date) => {
-  let day = date.getDay();
-  if(Schedule[day] == 'status' || Schedule[day] == null) {
-    return false;
-  }
-  return {
-    text: `_All engineers must head *immediately* to the main chamber for an important meeting_. [*${config('SLACK_MENTION')}*]`
-  };
-};
-
 const Holidays = require('date-holidays');
+
+// NOTE: Would be nice to add both Spain and Canada.
 const PolishHolidays = new Holidays('PL');
 
-let checkHoliday = (date) => {
-  let holiday = PolishHolidays.isHoliday(date);
-  if(!holiday) {
-    return false;
-  } else {
-    return {
-      text: `${date} is "${holiday.name}" in Poland. Ends on ${holiday.end}`
-    };
-  }
-}
+const checkHoliday = (date) => {
+  return PolishHolidays.isHoliday(date);
+};
 
-const Pipeline = [byDay, checkHoliday];
+const checkDate = (date) => {
+  if(checkHoliday(date)) return 'holiday';
+  return Schedule[date.getDay()];
+};
 
-module.exports.check = (date) => {
-  return _.reduce(Pipeline,
-                  (v, fun) => { return v || fun(date); },
-                  false);
-}
+module.exports.check = checkDate;
+module.exports.getHoliday = checkHoliday;
